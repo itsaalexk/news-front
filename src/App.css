@@ -4,6 +4,78 @@
   padding: 2rem;
   text-align: center;
 }
+/* Header.css */
+
+/* Fondo con gradiente para dar una apariencia más moderna */
+.header-bg {
+  background: linear-gradient(135deg, #1c5288, #8e9caa); /* Gradiente oscuro */
+  color: white;
+}
+
+/* Título con tipografía más moderna */
+.header-bg h1 {
+  font-family: "Arial", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: #ecf0f1; /* Color de texto claro */
+}
+
+/* Texto de descripción */
+.header-bg p {
+  font-size: 1.1rem;
+  color: #bdc3c7; /* Texto de descripción más suave */
+}
+
+/* Estilo del botón con efectos hover */
+.btn-primary {
+  background-color: #3498db;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
+  transform: translateY(-5px); /* Efecto de elevación */
+}
+
+.btn-primary:focus {
+  box-shadow: none;
+}
+
+/* Diseño responsivo */
+@media (max-width: 767px) {
+  .header-bg h1 {
+    font-size: 2.5rem; /* Tamaño de fuente más pequeño en móviles */
+  }
+
+  .header-bg p {
+    font-size: 1rem; /* Reducir el tamaño del texto */
+  }
+}
+footer {
+  position: absolute; /* Position the footer at the bottom */
+  bottom: 0;
+  left: 0; /* Stick the footer to the bottom of the page */
+  width: 100%; /* Make sure the footer spans the full width */
+  background-color: #333; /* Dark background */
+  color: white; /* White text */
+  text-align: center; /* Center text */
+  padding: 1rem; /* Add padding inside the footer */
+}
+header {
+  position: absolute; /* Position the footer at the bottom */
+  top: 0;
+  left: 0; /* Stick the footer to the bottom of the page */
+  width: 100%; /* Make sure the footer spans the full width */
+  background-color: #333; /* Dark background */
+  color: white; /* White text */
+  text-align: center; /* Center text */
+  padding: 1rem; /* Add padding inside the footer */
+}
 
 .logo {
   height: 6em;

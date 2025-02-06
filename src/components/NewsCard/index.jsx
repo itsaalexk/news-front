@@ -10,6 +10,7 @@ export function NewsCard({
   author,
   dateArchived,
   image,
+  onArchive,
 }) {
   return (
     <Card className="h-100 shadow-sm">
@@ -43,7 +44,7 @@ export function NewsCard({
             </Button>
           </Col>
           <Col className="d-grid">
-            <Button variant="outline-secondary" size="sm">
+            <Button onClick={onArchive} variant="outline-secondary" size="sm">
               <ArchiveIcon className="mr-2" /> Archivar
             </Button>
           </Col>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Pagination } from "react-bootstrap";
 import { useSearchParams } from "react-router";
 
@@ -6,9 +6,17 @@ const PaginationComponent = ({ totalPages, onPageChange }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get("page")) ?? 1;
 
+  useEffect(() => {
+    if (!searchParams.get("page")) {
+      setSearchParams({ page: 1 });
+    }
+  }, [searchParams, setSearchParams]);
+
   const handlePageClick = (pageNumber) => {
-    setSearchParams({ page: pageNumber });
-    onPageChange(pageNumber);
+    if (pageNumber !== currentPage) {
+      setSearchParams({ page: pageNumber });
+      onPageChange(pageNumber);
+    }
   };
 
   const renderPaginationItems = () => {
@@ -40,7 +48,7 @@ const PaginationComponent = ({ totalPages, onPageChange }) => {
           onClick={() => handlePageClick(currentPage + 1)}
         />
       </Pagination>
-      <p>Pagina actual: {currentPage}</p>
+      <p>Página actual: {currentPage}</p>
     </div>
   );
 };

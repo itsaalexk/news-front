@@ -3,6 +3,7 @@ import { getAllNews } from "../services/getAllNews";
 import { achiveNewsById } from "../services/achiveNewsById/archiveNewsById";
 import { launchToast } from "../utils/launchToast";
 import { restoreNewsById } from "../services/restoreNewsById/restoreNewsById";
+import { deleteNewsById } from "../services/deleteNewsById/deleteNewsById";
 
 export function useGetAllNews(archived = false) {
   const [data, setData] = useState([]);
@@ -42,5 +43,23 @@ export function useGetAllNews(archived = false) {
     launchToast("error", "No se pudo restaurar la noticia");
   }
 
-  return { data, loading, setPage, handleArchive, handleRestore, noData };
+  async function handleDelete(id) {
+    const deleteStatus = await deleteNewsById(id);
+    if (deleteStatus === 200) {
+      launchToast("success", "Noticia eliminada correctamente");
+      const response = await getAllNews(1, archived);
+      setData(response);
+      return;
+    }
+  }
+
+  return {
+    data,
+    loading,
+    setPage,
+    handleArchive,
+    handleRestore,
+    noData,
+    handleDelete,
+  };
 }

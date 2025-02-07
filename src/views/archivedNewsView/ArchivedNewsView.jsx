@@ -26,6 +26,7 @@ const AchivedNewsView = () => {
       pageTitle="Noticias Archivadas"
       data={data}
       onRestore={(id) => handleRestore(id)}
+      onDelete={(id) => console.log(id)}
       setPage={setPage}
     />
   );

@@ -10,8 +10,8 @@ export function NewContainer({
   onArchive,
   setPage,
   onRestore,
+  onDelete,
 }) {
-  console.log(data);
   return (
     <>
       <Container className="my-4">
@@ -23,6 +23,7 @@ export function NewContainer({
               <NewsCard
                 onArchive={() => onArchive && onArchive(item?._id)}
                 onRestore={() => onRestore && onRestore(item?._id)}
+                onDelete={() => onDelete && onDelete(item?._id)}
                 title={item?.title}
                 description={item?.description}
                 image={item?.image}

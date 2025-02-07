@@ -5,7 +5,8 @@ import { useGetAllNews } from "../../hooks/getAllNews";
 import { NewContainer } from "../../components/NewContainer/NewContainer";
 
 const NewsView = () => {
-  const { data, loading, setPage, handleArchive, noData } = useGetAllNews();
+  const { data, loading, setPage, handleArchive, noData, handleDelete } =
+    useGetAllNews();
 
   if (loading) {
     return <Spinner animation="border" />;
@@ -24,6 +25,7 @@ const NewsView = () => {
       pageTitle="Noticias Destacadas"
       data={data}
       onArchive={handleArchive}
+      onDelete={handleDelete}
       setPage={setPage}
     />
   );

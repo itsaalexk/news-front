@@ -42,7 +42,7 @@ export function NewsCard({
         </Row>
         <Row className="mt-2">
           <Col className="d-grid">
-            <Button variant="outline-danger" size="sm">
+            <Button variant="danger" size="sm">
               <TrashIcon className="mr-2" /> Eliminar
             </Button>
           </Col>

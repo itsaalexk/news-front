@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Pagination } from "react-bootstrap";
+import { useSearchParams } from "react-router";
 
 const PaginationComponent = ({ totalPages, onPageChange }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get("page")) ?? 1;
 
   const handlePageClick = (pageNumber) => {
-    setCurrentPage(pageNumber);
+    setSearchParams({ page: pageNumber });
     onPageChange(pageNumber);
   };
 

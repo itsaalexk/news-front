@@ -4,31 +4,26 @@
   padding: 2rem;
   text-align: center;
 }
-/* Header.css */
 
-/* Fondo con gradiente para dar una apariencia más moderna */
 .header-bg {
-  background: linear-gradient(135deg, #1c5288, #8e9caa); /* Gradiente oscuro */
+  background: linear-gradient(135deg, #1c5288, #8e9caa);
   color: white;
 }
 
-/* Título con tipografía más moderna */
 .header-bg h1 {
   font-family: "Arial", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 15px;
-  color: #ecf0f1; /* Color de texto claro */
+  color: #ecf0f1;
 }
 
-/* Texto de descripción */
 .header-bg p {
   font-size: 1.1rem;
-  color: #bdc3c7; /* Texto de descripción más suave */
+  color: #bdc3c7;
 }
 
-/* Estilo del botón con efectos hover */
 .btn-primary {
   background-color: #3498db;
   border: none;
@@ -61,36 +56,45 @@
   outline: none;
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-/* Diseño responsivo */
+.content {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
 @media (max-width: 767px) {
   .header-bg h1 {
-    font-size: 2.5rem; /* Tamaño de fuente más pequeño en móviles */
+    font-size: 2.5rem;
   }
 
   .header-bg p {
-    font-size: 1rem; /* Reducir el tamaño del texto */
+    font-size: 1rem;
   }
 }
 footer {
-  position: absolute; /* Position the footer at the bottom */
+  position: absolute;
   bottom: 0;
-  left: 0; /* Stick the footer to the bottom of the page */
-  width: 100%; /* Make sure the footer spans the full width */
-  background-color: #333; /* Dark background */
-  color: white; /* White text */
-  text-align: center; /* Center text */
-  padding: 1rem; /* Add padding inside the footer */
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
 header {
-  position: absolute; /* Position the footer at the bottom */
+  position: absolute;
   top: 0;
-  left: 0; /* Stick the footer to the bottom of the page */
-  width: 100%; /* Make sure the footer spans the full width */
-  background-color: #333; /* Dark background */
-  color: white; /* White text */
-  text-align: center; /* Center text */
-  padding: 1rem; /* Add padding inside the footer */
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
 
 .logo {

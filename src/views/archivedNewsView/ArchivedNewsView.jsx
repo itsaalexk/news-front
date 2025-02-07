@@ -16,7 +16,7 @@ const AchivedNewsView = () => {
   if (noData) {
     return (
       <h1 className="text-center mt-4">
-        No hay noticias que mostrar en este momento. 😞
+        No hay noticias archivadas que mostrar en este momento. 😞
       </h1>
     );
   }

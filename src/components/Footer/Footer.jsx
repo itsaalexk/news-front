@@ -1,13 +1,12 @@
 import { GithubIcon } from "lucide-react";
-import React from "react";
 
 export const Footer = () => {
   return (
-    <footer className="bg-dark text-white text-center py-3 mt-5 absolute-bottom">
+    <footer className="bg-dark text-white text-center py-3 mt-5">
       <div>
         <p>
-          Puedes encontrar tanto el Front como el Back de esta prueba tecnica
-          subida en Github
+          Puedes encontrar tanto el Front como el Back de esta prueba técnica
+          subida en Github.
         </p>
         <p>
           <a

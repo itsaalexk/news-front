@@ -16,7 +16,7 @@ export function NewContainer({
     <>
       <Container className="my-4">
         <h1 className="text-center mb-4">{pageTitle}</h1>
-        <Row xs={1} md={2} lg={5} className="g-4">
+        <Row xs={2} md={3} lg={3}>
           <EachOf
             items={data?.news}
             render={(item) => (
@@ -36,7 +36,7 @@ export function NewContainer({
           />
         </Row>
       </Container>
-      {data?.totalPages.length > 0 && (
+      {data?.totalPages > 1 && (
         <PaginationComponent
           totalPages={data?.totalPages}
           onPageChange={setPage}

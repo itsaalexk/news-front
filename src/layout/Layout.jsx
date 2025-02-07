@@ -6,7 +6,7 @@ import AchivedNewsView from "../views/archivedNewsView/ArchivedNewsView";
 
 export function LayoutComponent() {
   return (
-    <div className="layout">
+    <div>
       <Header />
       <main>
         <Routes>
@@ -15,7 +15,6 @@ export function LayoutComponent() {
           <Route path="/archived-news" element={<AchivedNewsView />} />
         </Routes>
       </main>
-      <Footer />
     </div>
   );
 }

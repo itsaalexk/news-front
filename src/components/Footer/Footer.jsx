@@ -1,4 +1,4 @@
-import { GithubIcon, LinkedinIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import React from "react";
 
 export const Footer = () => {
@@ -11,7 +11,7 @@ export const Footer = () => {
         </p>
         <p>
           <a
-            href="https://github.com/tu-perfil"
+            href="https://github.com/itsaalexk"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white"

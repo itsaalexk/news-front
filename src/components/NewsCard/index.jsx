@@ -1,6 +1,7 @@
 import { ArchiveIcon, TrashIcon } from "lucide-react";
 import React from "react";
 import { Card, Button, Row, Col } from "react-bootstrap";
+import { parseDate } from "../../helpers/parseDate";
 
 export function NewsCard({
   title,
@@ -11,15 +12,17 @@ export function NewsCard({
   dateArchived,
   image,
   onArchive,
+  onRestore,
+  archived,
 }) {
   return (
-    <Card className="h-100 shadow-sm">
+    <Card className="h-100 shadow-sm w-100">
       <Card.Img variant="top" src={image} />
       <Card.Body>
         <Card.Title className="font-weight-bold">{title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           <small>
-            {new Date(date).toLocaleDateString("es-ES")} | Por {author}
+            {parseDate(date)} | Por {author}
           </small>
         </Card.Subtitle>
         <Card.Text>{description}</Card.Text>
@@ -44,18 +47,20 @@ export function NewsCard({
             </Button>
           </Col>
           <Col className="d-grid">
-            <Button onClick={onArchive} variant="outline-secondary" size="sm">
-              <ArchiveIcon className="mr-2" /> Archivar
+            <Button
+              onClick={archived ? onRestore : onArchive}
+              variant="outline-secondary"
+              size="sm"
+            >
+              <ArchiveIcon className="mr-2" />
+              {archived ? "Restaurar" : "Archivar"}
             </Button>
           </Col>
         </Row>
-        {dateArchived && (
+        {archived && (
           <Row className="mt-2">
             <Col>
-              <small className="text-muted">
-                Archivado el:{" "}
-                {new Date(dateArchived).toLocaleDateString("es-ES")}
-              </small>
+              <small className="text-muted">Archivado el: {dateArchived}</small>
             </Col>
           </Row>
         )}

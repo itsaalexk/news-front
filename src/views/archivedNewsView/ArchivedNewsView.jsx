@@ -4,8 +4,10 @@ import { useGetAllNews } from "../../hooks/getAllNews";
 
 import { NewContainer } from "../../components/NewContainer/NewContainer";
 
-const NewsView = () => {
-  const { data, loading, setPage, handleArchive, noData } = useGetAllNews();
+const AchivedNewsView = () => {
+  const isArchived = true;
+  const { data, loading, setPage, noData, handleRestore } =
+    useGetAllNews(isArchived);
 
   if (loading) {
     return <Spinner animation="border" />;
@@ -21,12 +23,12 @@ const NewsView = () => {
 
   return (
     <NewContainer
-      pageTitle="Noticias Destacadas"
+      pageTitle="Noticias Archivadas"
       data={data}
-      onArchive={handleArchive}
+      onRestore={(id) => handleRestore(id)}
       setPage={setPage}
     />
   );
 };
 
-export default NewsView;
+export default AchivedNewsView;

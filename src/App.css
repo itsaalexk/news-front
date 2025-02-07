@@ -32,18 +32,34 @@
 .btn-primary {
   background-color: #3498db;
   border: none;
-  border-radius: 30px;
-  transition: all 0.3s ease;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
   background-color: #2980b9;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
-  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background-color: #2471a3;
+  box-shadow: 0 3px 6px rgba(50, 50, 93, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+  transform: translateY(1px);
 }
 
 .btn-primary:focus {
-  box-shadow: none;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.5);
 }
 
 /* Diseño responsivo */

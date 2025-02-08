@@ -1,16 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-// Definimos el esquema de validación aquí mismo para asegurarnos de que esté disponible
-const validationSchema = Yup.object().shape({
-  title: Yup.string().required("El título es obligatorio"),
-  author: Yup.string().required("El autor es obligatorio"),
-  description: Yup.string().required("El resumen es obligatorio"),
-  content: Yup.string().required("El contenido es obligatorio"),
-});
+import { validationSchema } from "./validationSchema";
+import { useGetAllNews } from "../../hooks/getAllNews";
 
 export const CreateNews = () => {
+  const { handleCreate } = useGetAllNews();
   const initialValues = {
     title: "",
     author: "",
@@ -18,46 +11,41 @@ export const CreateNews = () => {
     content: "",
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
-    console.log(values);
-    console.log("Enviando datos al backend...");
-    setSubmitting(false);
-  };
-
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-8">
-          <h2 className="mb-4">Crear Nueva Noticia</h2>
+          <h2 className="mb-4 text-center">Crear Nueva Noticia</h2>
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
-            onSubmit={onSubmit}
+            onSubmit={async (values) => await handleCreate(values)}
           >
-            {({ isValid, dirty, errors, touched }) => (
+            {({ isValid, dirty }) => (
               <Form>
-                <div className="mb-3">
-                  <label htmlFor="title" className="form-label">
-                    Título de la Noticia
-                  </label>
-                  <Field type="text" name="title" className="form-control" />
-                  <ErrorMessage
-                    name="title"
-                    component="div"
-                    className="text-danger"
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <label htmlFor="author" className="form-label">
-                    Autor
-                  </label>
-                  <Field type="text" name="author" className="form-control" />
-                  <ErrorMessage
-                    name="author"
-                    component="div"
-                    className="text-danger"
-                  />
+                <div className="row mb-3">
+                  <div className="col-md-6">
+                    <label htmlFor="title" className="form-label">
+                      Título de la Noticia
+                    </label>
+                    <Field type="text" name="title" className="form-control" />
+                    <ErrorMessage
+                      name="title"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
+                  <div className="col-md-6">
+                    <label htmlFor="author" className="form-label">
+                      Autor
+                    </label>
+                    <Field type="text" name="author" className="form-control" />
+                    <ErrorMessage
+                      name="author"
+                      component="div"
+                      className="text-danger"
+                    />
+                  </div>
                 </div>
 
                 <div className="mb-3">
@@ -94,7 +82,7 @@ export const CreateNews = () => {
                   />
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-3 text-center">
                   <button
                     type="submit"
                     className="btn btn-primary"
@@ -106,6 +94,7 @@ export const CreateNews = () => {
               </Form>
             )}
           </Formik>
+
           <div className="mt-4 alert alert-info">
             Nota: La imagen principal de la noticia se generará automáticamente
             desde el backend.

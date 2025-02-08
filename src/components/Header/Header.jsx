@@ -1,5 +1,4 @@
 import { useLocation, useNavigate } from "react-router";
-import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { useDebouncedSearchQuery } from "../../hooks/useDebounceSearchQuery";
 
@@ -11,6 +10,7 @@ export function Header() {
   const isNewsPath = location.pathname === "/news";
   const { searchQuery, setSearchQuery } =
     useDebouncedSearchQuery(DEBOUNCE_TIME);
+
   return (
     <header className="bg-dark py-3">
       <div className="container">
@@ -40,9 +40,15 @@ export function Header() {
           <div className="col-md-3 d-flex justify-content-md-end justify-content-center">
             <button
               onClick={() => navigate(isNewsPath ? "/archived-news" : "/news")}
-              className="btn btn-outline-light"
+              className="btn btn-outline-light me-2"
             >
               {isNewsPath ? "Ir a noticias archivadas" : "Ver noticias"}
+            </button>
+            <button
+              onClick={() => navigate("/create-news")}
+              className="btn btn-outline-light"
+            >
+              Publicar noticia
             </button>
           </div>
         </div>

@@ -9,7 +9,6 @@ export function ModalComponent({ show, onClose, onDeleteConfirm }) {
       className="modal show"
       style={{
         display: "block",
-        position: "initial",
         position: "absolute",
         top: 200,
       }}

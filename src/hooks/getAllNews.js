@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllNews } from "../services/getAllNews";
+import { useSearchParams } from "react-router";
 import { achiveNewsById } from "../services/achiveNewsById/archiveNewsById";
 import { launchToast } from "../utils/launchToast";
 import { restoreNewsById } from "../services/restoreNewsById/restoreNewsById";
@@ -10,16 +11,18 @@ export function useGetAllNews(archived = false) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const noData = data?.news?.length === 0;
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("q");
 
   useEffect(() => {
     async function getData() {
       setLoading(true);
-      const response = await getAllNews(page, archived);
+      const response = await getAllNews(page, archived, searchQuery);
       setData(response);
       setLoading(false);
     }
     getData();
-  }, [page, archived]);
+  }, [page, archived, searchQuery]);
 
   async function handleArchive(id) {
     const status = await achiveNewsById(id);

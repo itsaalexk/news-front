@@ -14,7 +14,7 @@ export function NewContainer({
 }) {
   return (
     <>
-      <Container className="my-4">
+      <Container className="my-5">
         <h1 className="text-center mb-4">{pageTitle}</h1>
         <Row xs={2} md={3} lg={3}>
           <EachOf

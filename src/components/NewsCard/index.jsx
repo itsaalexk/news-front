@@ -26,7 +26,7 @@ export function NewsCard({
 
   return (
     <>
-      <Card className="h-100 shadow-sm w-100">
+      <Card className="shadow-sm w-100">
         <Card.Img variant="top" src={image} />
         <Card.Body>
           <Card.Title className="font-weight-bold">{title}</Card.Title>

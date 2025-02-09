@@ -60,7 +60,6 @@ export function useGetAllNews(archived = false) {
 
   async function handleCreate(news) {
     const response = await createNews(news);
-    console.log(response);
     if (response.status === 201) {
       launchToast("success", "Noticia creada correctamente");
       const response = await getAllNews(1, archived);

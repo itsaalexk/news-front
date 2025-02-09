@@ -6,7 +6,7 @@ import { NewContainer } from "../../components/NewContainer/NewContainer";
 
 const AchivedNewsView = () => {
   const isArchived = true;
-  const { data, loading, setPage, noData, handleRestore } =
+  const { data, loading, setPage, noData, handleRestore, handleDelete } =
     useGetAllNews(isArchived);
 
   if (loading) {
@@ -26,7 +26,7 @@ const AchivedNewsView = () => {
       pageTitle="Noticias Archivadas"
       data={data}
       onRestore={(id) => handleRestore(id)}
-      onDelete={(id) => console.log(id)}
+      onDelete={(id) => handleDelete(id)}
       setPage={setPage}
     />
   );

@@ -6,6 +6,7 @@ import { launchToast } from "../utils/launchToast";
 import { restoreNewsById } from "../services/restoreNewsById/restoreNewsById";
 import { deleteNewsById } from "../services/deleteNewsById/deleteNewsById";
 import { createNews } from "../services/createNews/createNews";
+import { STATUS } from "../config/statusCodes";
 
 export function useGetAllNews(archived = false) {
   const [data, setData] = useState([]);
@@ -50,7 +51,7 @@ export function useGetAllNews(archived = false) {
 
   async function handleDelete(id) {
     const deleteStatus = await deleteNewsById(id);
-    if (deleteStatus === 200) {
+    if (deleteStatus === STATUS.OK) {
       launchToast("success", "Noticia eliminada correctamente");
       const response = await getAllNews(1, archived);
       setData(response);
@@ -60,7 +61,7 @@ export function useGetAllNews(archived = false) {
 
   async function handleCreate(news) {
     const response = await createNews(news);
-    if (response.status === 201) {
+    if (response.status === STATUS.CREATED) {
       launchToast("success", "Noticia creada correctamente");
       const response = await getAllNews(1, archived);
       setData(response);

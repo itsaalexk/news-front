@@ -16,7 +16,7 @@ export function NewContainer({
     <>
       <Container className="my-5">
         <h1 className="text-center mb-4">{pageTitle}</h1>
-        <Row xs={2} md={3} lg={3}>
+        <Row xs={1} md={3} lg={3}>
           <EachOf
             items={data?.news}
             render={(item) => (

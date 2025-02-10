@@ -49,14 +49,12 @@ describe("PaginationComponent", () => {
     );
 
     const page2Button = screen.getByText(2);
-    fireEvent.click(page2Button); // Simula un clic en la página 2
+    fireEvent.click(page2Button);
 
-    // Esperar que mockOnPageChange haya sido llamado con el número de página correcto
     await waitFor(() => {
       expect(mockOnPageChange).toHaveBeenCalledWith(2);
     });
 
-    // Verificar que setSearchParams haya sido llamado con la nueva página
     expect(mockSetSearchParams).toHaveBeenCalledWith({ page: 2 });
   });
 
@@ -68,11 +66,10 @@ describe("PaginationComponent", () => {
     );
 
     const nextButton = screen.getByText("Next");
-    fireEvent.click(nextButton); // Simula un clic en el botón "Next" para ir a la página siguiente
+    fireEvent.click(nextButton);
 
-    // Verificar que mockOnPageChange haya sido llamado con el número de página correcto
     await waitFor(() => {
-      expect(mockOnPageChange).toHaveBeenCalledWith(2); // Debería ir a la página 2
+      expect(mockOnPageChange).toHaveBeenCalledWith(2);
     });
 
     expect(mockSetSearchParams).toHaveBeenCalledWith({ page: 2 });
@@ -80,7 +77,7 @@ describe("PaginationComponent", () => {
 
   test("calls onPageChange when previous button is clicked", async () => {
     useSearchParams.mockImplementation(() => [
-      new URLSearchParams({ page: 2 }), // Simula estar en la página 2
+      new URLSearchParams({ page: 2 }),
       mockSetSearchParams,
     ]);
 
@@ -91,10 +88,10 @@ describe("PaginationComponent", () => {
     );
 
     const prevButton = screen.getByText("Previous");
-    fireEvent.click(prevButton); // Simula un clic en el botón "Previous" para volver a la página anterior
+    fireEvent.click(prevButton);
 
     await waitFor(() => {
-      expect(mockOnPageChange).toHaveBeenCalledWith(1); // Debería ir a la página 1
+      expect(mockOnPageChange).toHaveBeenCalledWith(1);
     });
 
     expect(mockSetSearchParams).toHaveBeenCalledWith({ page: 1 });
